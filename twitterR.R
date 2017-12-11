@@ -1,5 +1,5 @@
 require(twitteR)
-require('RCurl')
+require(RCurl)
 
 consumer_key <- 'PUZuo6k75lZYGQBRiwlJLc9Og'
 consumer_secret <- '4My1RZHZgbYvaA5XBIAcJ11dqpgQtDOEecHR3LoZFcouCr1nL7'
@@ -7,15 +7,7 @@ access_token <- '938134932383260672-vkIaphVYLXb2tnnpKFJU3calS4pE4hu'
 access_secret <- 'ZNscFMCMQX9ercbLgN16ROrsFULA0GX04k0BMgS7VvnAQ'
 
 setup_twitter_oauth(consumer_key, consumer_secret, access_token, access_secret)
-
+1
 search <- searchTwitter('wannacry', geocode='40.7361,-73.9901,5mi',  n=5000, retryOnRateLimit=1)
 
-rdmTweets <- searchTwitter('#shark', geocode='35.9468685604644,-75.6266474452463,100mi',
-                           since='2016-06-01', until='2016-07-05')
-#Create a dataframe based around the results
-df4 <- do.call("rbind", lapply(rdmTweets, as.data.frame))
-#Here are the columns
-names(df4)
-
 print(search)
-
