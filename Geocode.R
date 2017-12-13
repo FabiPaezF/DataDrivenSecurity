@@ -28,11 +28,10 @@ with(locations, plot(longitude, latitude))
 worldMap <- map_data("world")  # MAPAMUNDI
 
 zp1 <- ggplot(worldMap) 
-zp1 <- zp1 + geom_path(aes(x = long, y = lat, group = group),  # Pintam el mapa
-                       colour = gray(2/3), lwd = 1/3)
-zp1 <- zp1 + geom_point(data = locations,  # Afegim un punt per usuari
-                        aes(x = longitude, y = latitude),
-                        colour = "RED", alpha = 1/2, size = 1/3)
-zp1 <- zp1 + coord_equal()  # Better projections are left for a future post
-zp1 <- zp1 + theme_minimal()  # Drop background annotations
+# Pintam el mapa
+zp1 <- zp1 + geom_path(aes(x = long, y = lat, group = group), colour = gray(2/3), lwd = 1/3) 
+# Afegim un punt per usuari
+zp1 <- zp1 + geom_point(data = locations, aes(x = longitude, y = latitude), colour = "RED", alpha = 1/2, size = 1/3)
+zp1 <- zp1 + coord_equal() # permite conservar la relacion altura ancho (proporciones)
+zp1 <- zp1 + theme_minimal()  # quitar información no útil del fondo
 print(zp1)
