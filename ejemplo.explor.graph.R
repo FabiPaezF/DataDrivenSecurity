@@ -7,9 +7,6 @@ head(pollution, n=2)
 summary(pollution$pm25)
 
 ## Exploración rápida de UNA dimensión
-# Boxplot con linea horizontal
-boxplot(pollution$pm25, col = "blue")
-abline(h = 12)
 
 # Histograma con observaciones y 50 divisiones
 hist(pollution$pm25, col = "green", breaks = 50)
