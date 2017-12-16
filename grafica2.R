@@ -1,14 +1,17 @@
-#Paquetes necesarios..
-require(RCurl)
-require(dismo)
-require(httr)
-require(XML)
-#A
+#comprovamos e instalamos los paquetes necesarios
+revisarPaquetes <- function(pkg){
+  nuevoPaquete <- pkg[!(pkg %in% installed.packages()[, "Package"])]
+  if (length(nuevoPaquete)) #si el paquete no esta instalado
+    install.packages(nuevoPaquete, dependencies = TRUE) #instalamos
+  sapply(pkg, require, character.only = TRUE)
+}
+
+paquetsNecessaris<-c("RCurl","dismo","httr","XML") #paquetes necesarios
+revisarPaquetes(paquetsNecessaris) #llamamos a la funcion creada
 
 wanna <- readRDS(file = "wannacry.rds")
 nWanna <- nrow(readRDS(file = "wannacry.rds"))
-
-print(nWanna)
+#print(nWanna)
 nAtac2 <- nrow(readRDS(file = "wannacry.rds"))
 nAtac3 <- nrow(readRDS(file = "wannacry.rds"))
 
