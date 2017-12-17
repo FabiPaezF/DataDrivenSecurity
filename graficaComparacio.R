@@ -13,17 +13,26 @@ if (file.exists("wannacry.rds")){
   wanna <- readRDS(file = "wannacry.rds")
   nWanna <- nrow(readRDS(file = "wannacry.rds"))
   #print(nWanna)
+}else {
+  #print("ERROR! Primero genera el archivo playstation.rds!")
+  stop("ERROR! Primero genera el archivo wannacry.rds!") 
 }
 if (file.exists("playstation.rds")){
   play <- readRDS(file = "playstation.rds")
   nPlay <- nrow(readRDS(file = "playstation.rds"))
   #print(nWanna)
+}else {
+  #print("ERROR! Primero genera el archivo playstation.rds!")
+  stop("ERROR! Primero genera el archivo playstation.rds!") 
 }
 
 if (file.exists("playstation.rds")){
   atac3 <- readRDS(file = "wannacry.rds")
   nAtac3 <- nrow(readRDS(file = "wannacry.rds"))
   #print(nWanna)
+}else {
+  #print("ERROR! Primero genera el archivo playstation.rds!")
+  stop("ERROR! Primero genera el archivo playstation.rds!") 
 }
 
 graphic <- matrix(c(nWanna,nPlay,nAtac3),ncol=3,byrow=TRUE)

@@ -11,15 +11,19 @@ revisarPaquetes(paquetsNecessaris) #llamamos a la funcion creada
 
 if (file.exists("wannacry.rds")){ #comprobamos que exista el archivo
   tweetFrame <- readRDS(file = "wannacry.rds") #Sacamos dataFrame guardado en la busqueda
+  tweetFrame$created <- as.Date(as.POSIXct(trunc(tweetFrame$created, "days"), 'GMT')) #modificamos el valor de la columna created para que eliminar la parte correspondiente a horas minutos y segundos
+  
+  tweetFrame %>%
+    count(created, sort = TRUE) %>% #cogemos la columna created
+    filter(n > 100) %>%  
+    mutate(created = reorder(created, n)) %>%
+    ggplot(aes(created, n)) + #dibujamos el grafico
+    geom_col() +
+    xlab(NULL) +
+    coord_flip() #ejes coordenadas
+} else {
+  #print("ERROR! Primero genera el archivo playstation.rds!")
+  stop("ERROR! Primero genera el archivo wannacry.rds!") 
 }
 
-tweetFrame$created <- as.Date(as.POSIXct(trunc(tweetFrame$created, "days"), 'GMT')) #modificamos el valor de la columna created para que eliminar la parte correspondiente a horas minutos y segundos
 
-tweetFrame %>%
-  count(created, sort = TRUE) %>% #cogemos la columna created
-  filter(n > 100) %>%  
-  mutate(created = reorder(created, n)) %>%
-  ggplot(aes(created, n)) + #dibujamos el grafico
-  geom_col() +
-  xlab(NULL) +
-  coord_flip() #ejes coordenadas
