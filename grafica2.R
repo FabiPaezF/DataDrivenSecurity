@@ -12,11 +12,12 @@ revisarPaquetes(paquetsNecessaris) #llamamos a la funcion creada
 wanna <- readRDS(file = "wannacry.rds")
 nWanna <- nrow(readRDS(file = "wannacry.rds"))
 #print(nWanna)
-nAtac2 <- nrow(readRDS(file = "wannacry.rds"))
+play <- readRDS(file = "playstation.rds")
+nPlay <- nrow(readRDS(file = "playstation.rds"))
 nAtac3 <- nrow(readRDS(file = "wannacry.rds"))
 
-graphic <- matrix(c(nWanna,nAtac2,nAtac3),ncol=3,byrow=TRUE)
-colnames(graphic) <- c("Wannacry","nAtac2","nAtac3")
+graphic <- matrix(c(nWanna,nPlay,nAtac3),ncol=3,byrow=TRUE)
+colnames(graphic) <- c("Wannacry","Playstation DDoS","nAtac3")
 graphic <- as.table(graphic)
 #graphic
 

@@ -10,8 +10,8 @@ setup_twitter_oauth(consumer_key, consumer_secret, access_token, access_secret)
 1
 
 ltw <- list()
-for (x in 1:5){
-  searchResults <- searchTwitter('DDoS Playstation', since='2017-05-07', sinceID=x*5000, n=5000)
+for (x in 1:100){
+  searchResults <- searchTwitter('Playstation DDoS', since='2017-05-07', sinceID=x*5000, n=5000)
   ltw[[x]] <- twListToDF(searchResults)
 }
 df.tw <- plyr::ldply(ltw)

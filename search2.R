@@ -10,7 +10,7 @@ setup_twitter_oauth(consumer_key, consumer_secret, access_token, access_secret)
 1
 
 ltw <- list()
-for (x in 1:3){
+for (x in 1:100){
   searchResults <- searchTwitter('wannacry', since='2017-05-07', sinceID=x*5000, n=5000)
   ltw[[x]] <- twListToDF(searchResults)
 }
