@@ -9,7 +9,9 @@ revisarPaquetes <- function(pkg){
 paquetsNecessaris<-c("magrittr","dplyr","ggplot2") #paquetes necesarios
 revisarPaquetes(paquetsNecessaris) #llamamos a la funcion creada
 
-tweetFrame <- readRDS(file = "wannacry.rds") #Sacamos dataFrame guardado en la busqueda
+if (file.exists("wannacry.rds")){ #comprobamos que exista el archivo
+  tweetFrame <- readRDS(file = "wannacry.rds") #Sacamos dataFrame guardado en la busqueda
+}
 
 tweetFrame$created <- as.Date(as.POSIXct(trunc(tweetFrame$created, "days"), 'GMT')) #modificamos el valor de la columna created para que eliminar la parte correspondiente a horas minutos y segundos
 

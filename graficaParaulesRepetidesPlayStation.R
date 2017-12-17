@@ -9,7 +9,9 @@ check.packages <- function(pkg){
 paquetsNecessaris<-c("slam","wordcloud","RColorBrewer","tm","dplyr") #paquetes necesarios
 check.packages(paquetsNecessaris) #llamamos a la funcion creada
 
-tweetFrame <- readRDS(file = "playstation.rds")
+if (file.exists("playstation.rds")){ #comprobamos que exista el archivo
+  tweetFrame <- readRDS(file = "playstation.rds") #Sacamos dataFrame guardado en la busqueda
+}
 
 # cogemos el tweet
 tweet_texto = tweetFrame$text
