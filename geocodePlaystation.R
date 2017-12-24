@@ -9,16 +9,16 @@ revisarPaquetes <- function(pkg){
 paquetsNecessaris<-c("twitteR", "RCurl", "dismo", "maps", "ggplot2", "XML") #paquetes necesarios
 revisarPaquetes(paquetsNecessaris) #llamamos a la funcion creada
 
-consumer_key <- 'PUZuo6k75lZYGQBRiwlJLc9Og'
-consumer_secret <- '4My1RZHZgbYvaA5XBIAcJ11dqpgQtDOEecHR3LoZFcouCr1nL7'
-access_token <- '938134932383260672-vkIaphVYLXb2tnnpKFJU3calS4pE4hu'
-access_secret <- 'ZNscFMCMQX9ercbLgN16ROrsFULA0GX04k0BMgS7VvnAQ'
+consumer_key <- 'xTtWssMDK0lbL3snyh07qc6Tq'
+consumer_secret <- 'uhFU4p4XAijNMaKXml9dqatYN09AhWKU2XgNFgDkYIPEMMjafe'
+access_token <- '942082776689528832-p8iBl60ho1aYTNmwOFxgOIKF1TrSeLo'
+access_secret <- 'kadqQQ0YqP5iGzgp9MkfP4pDRM6rDXrL9N7khPlPqcgv5'
 
 setup_twitter_oauth(consumer_key, consumer_secret, access_token, access_secret) #accesso a Twitter
 1 ##para confirmar la autenticacion
 
-if (file.exists("playstation.rds")){ #comprobamos que exista el archivo
-  tweetFrame <- readRDS(file = "playstation.rds") #Sacamos dataFrame guardado en la busqueda
+if (file.exists("judyb.rds")){ #comprobamos que exista el archivo
+  tweetFrame <- readRDS(file = "judyb.rds") #Sacamos dataFrame guardado en la busqueda
   userInfo <- lookupUsers(tweetFrame$screenName)  # buscamos informacion sobre los usuarios
   userFrame <- twListToDF(userInfo)  # Convertimos a DataFrame
   

@@ -20,8 +20,8 @@ access_secret <- 'kadqQQ0YqP5iGzgp9MkfP4pDRM6rDXrL9N7khPlPqcgv5'
 
 setup_twitter_oauth(consumer_key, consumer_secret, access_token, access_secret) #accesso a Twitter
 1 ##para confirmar la autenticacion
-if (file.exists("playstation.rds")){ #comprobamos que exista el archivo
-  tweetFrame <- readRDS(file = "playstation.rds") #Sacamos dataFrame guardado en la busqueda
+if (file.exists("petyab.rds")){ #comprobamos que exista el archivo
+  tweetFrame <- readRDS(file = "petyab.rds") #Sacamos dataFrame guardado en la busqueda
   
   userInfo <- lookupUsers(tweetFrame$screenName)  # buscamos informacion sobre los usuarios
   userFrame <- twListToDF(userInfo)  # Convertimos a DataFrame
